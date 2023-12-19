@@ -11,9 +11,19 @@ function validation(){
     var error_subj = document.getElementById("error_subj");
     var error_name = document.getElementById("error_name");
 
+    error_name.innerHTML = "";
+    error_subj.innerHTML = "";
+    error_phno.innerHTML = "";
+    error_email.innerHTML = "";
+    error_message.innerHTML = "";
 
-    error_message.style.padding="5px";
 
+    var nameRegex = /^[A-Za-z\s]+$/;
+    if (!nameRegex.test(name)) {
+      error_name.innerHTML =
+        " * please enter a valid name (only letters and spaces allowed)";
+      return false;
+    }
     if(name.length<3){
         text=" * please enter valid name ";
         error_name.innerHTML=text;
